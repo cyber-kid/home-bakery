@@ -1,5 +1,6 @@
 package com.home.home_bakery.recipes.repositories.entities;
 
+import com.home.home_bakery.inventory.controller.dto.MeasurementUnit;
 import com.home.home_bakery.inventory.repositories.entities.ProductType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,4 +23,6 @@ public class RecipeDetails {
     @JoinColumn(name = "product_type_id")
     private ProductType productType;
     private Double weight;
+    @Column(name = "measurement_unit")
+    private MeasurementUnit measurementUnit;
 }

@@ -20,6 +20,6 @@ public class OrderDto {
     private Double price;
     private UUID recipeId;
     private String recipeName;
-    private Date orderDate;
+    private String orderDate;
     private List<OrderDetailsDto> orderDetails;
 }

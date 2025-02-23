@@ -17,8 +17,8 @@ import java.util.UUID;
 public class ProductInventoryDto {
     private UUID id;
     private Double price;
-    private Date purchaseDate;
-    private UUID product_id;
+    private String purchaseDate;
+    private UUID productId;
     private String brand;
     private MeasurementUnit measurementUnit;
     private Integer barcode;
@@ -27,4 +27,5 @@ public class ProductInventoryDto {
     private String description;
     private String productTypeName;
     private UUID productTypeId;
+    private Double remainingWeight;
 }

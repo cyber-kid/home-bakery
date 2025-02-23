@@ -115,3 +115,29 @@ databaseChangeLog:
               - column:
                   name: order_date
                   type: DATE
+  - changeSet:
+      id: 2
+      author: amyrgorod
+      changes:
+        - addColumn:
+            tableName: recipe_details
+            columns:
+              - column:
+                  name: measurement_unit
+                  type: VARCHAR(10)
+        - addColumn:
+            tableName: product_inventory
+            columns:
+              - column:
+                  name: remaining_weight
+                  type: DOUBLE
+        - addColumn:
+            tableName: order_details
+            columns:
+              - column:
+                  name: notes
+                  type: VARCHAR(250)
+        - renameColumn:
+            newColumnName: product_type_id
+            oldColumnName: product_id
+            tableName: order_details

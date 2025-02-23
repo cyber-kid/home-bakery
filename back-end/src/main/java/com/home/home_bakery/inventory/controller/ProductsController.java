@@ -1,6 +1,7 @@
 package com.home.home_bakery.inventory.controller;
 
 import com.home.home_bakery.inventory.controller.dto.ProductDto;
+import com.home.home_bakery.inventory.controller.dto.ProductTypeDto;
 import com.home.home_bakery.inventory.services.ProductsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+@CrossOrigin
 @Slf4j
 @RequiredArgsConstructor
 @RestController
@@ -20,6 +22,11 @@ public class ProductsController {
     @GetMapping
     public List<ProductDto> getProducts() {
         return productsService.getAllProducts();
+    }
+
+    @GetMapping("/types")
+    public List<ProductTypeDto> getProductTypes() {
+        return productsService.getAllProductTypes();
     }
 
     @PostMapping

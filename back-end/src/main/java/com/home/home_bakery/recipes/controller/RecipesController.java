@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+@CrossOrigin
 @Slf4j
 @RequiredArgsConstructor
 @RestController
@@ -24,6 +25,7 @@ public class RecipesController {
     }
 
     @GetMapping
+    @ResponseBody
     public List<RecipeDto> getAllRecipes() {
         return recipeService.getAllRecipes();
     }

@@ -1,6 +1,7 @@
 package com.home.home_bakery.inventory.services;
 
 import com.home.home_bakery.inventory.controller.dto.ProductDto;
+import com.home.home_bakery.inventory.controller.dto.ProductTypeDto;
 import com.home.home_bakery.inventory.repositories.ProductRepository;
 import com.home.home_bakery.inventory.repositories.ProductTypeRepository;
 import com.home.home_bakery.inventory.repositories.entities.Product;
@@ -51,6 +52,26 @@ public class ProductsServiceImpl implements ProductsService {
             log.error("Error{}: ", exception.getMessage());
             throw new RuntimeException("Failed to delete a product by id");
         }
+    }
+
+    @Override
+    public List<ProductTypeDto> getAllProductTypes() {
+        try {
+            List<ProductType> productTypeEntities = productTypeRepository.findAll();
+            return toProductTypeDtos(productTypeEntities);
+        } catch (Exception exception) {
+            log.error("Error: {}", exception.getMessage());
+            throw new RuntimeException("Failed to get all product types");
+        }
+    }
+
+    private List<ProductTypeDto> toProductTypeDtos(List<ProductType> productTypeEntities) {
+        return productTypeEntities.stream()
+                .map(entity -> ProductTypeDto.builder()
+                        .productTypeId(entity.getId())
+                        .productTypeName(entity.getName())
+                        .build())
+                .toList();
     }
 
     private List<ProductDto> toProductDtos(List<Product> productEntities) {
