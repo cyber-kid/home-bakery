@@ -1,6 +1,7 @@
 package com.home.home_bakery.recipes.controller.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.home.home_bakery.inventory.controller.dto.MeasurementUnit;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,4 +19,5 @@ public class RecipeDetailsDto {
     private UUID productTypeId;
     private Double weight;
     private String productTypeName;
+    private MeasurementUnit measurementUnit;
 }

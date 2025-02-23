@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -16,8 +17,7 @@ import java.util.UUID;
 public class OrderDetailsDto {
     private UUID id;
     private Double price;
-    private UUID productId;
-    private String productBrand;
     private UUID productTypeId;
-    private String productType;
+    private String productTypeName;
+    private List<InventorySelectionDto> selected;
 }

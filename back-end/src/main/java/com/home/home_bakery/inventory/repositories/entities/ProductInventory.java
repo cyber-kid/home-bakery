@@ -19,6 +19,8 @@ public class ProductInventory {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private Double price;
+    @Column(name = "remaining_weight")
+    private Double remainingWeight;
     @Column(name = "purchase_date")
     private Date purchaseDate;
     @ManyToOne

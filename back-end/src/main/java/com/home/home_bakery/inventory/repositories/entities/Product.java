@@ -27,7 +27,7 @@ public class Product {
     @Column(name = "valid_days")
     private Integer validDays;
     private String description;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="product_type_id", nullable=false)
     private ProductType productType;
 }

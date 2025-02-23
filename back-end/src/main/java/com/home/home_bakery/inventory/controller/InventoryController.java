@@ -7,7 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
 
+@CrossOrigin
 @RestController
 @RequestMapping("inventory")
 @RequiredArgsConstructor
@@ -22,7 +25,17 @@ public class InventoryController {
 
     @GetMapping
     @ResponseBody
-    public List<ProductInventoryDto> getAllProductsFromInventory() {
-        return productInventoryService.getAllProductsFromInventory();
+    public List<ProductInventoryDto> getProductsFromInventory(@RequestParam(required = false) UUID productTypeId) {
+        if (Objects.nonNull(productTypeId)) {
+            return productInventoryService.getProductsInventoryByProductTypeId(productTypeId);
+        } else {
+            return productInventoryService.getAllProductsFromInventory();
+        }
+    }
+
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteProductInventoryById(@PathVariable UUID id) {
+        productInventoryService.deleteProductInventoryById(id);
     }
 }

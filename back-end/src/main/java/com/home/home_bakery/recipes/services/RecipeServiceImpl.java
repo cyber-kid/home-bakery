@@ -74,6 +74,7 @@ public class RecipeServiceImpl implements RecipeService {
                 .id(entity.getId())
                 .productTypeId(entity.getProductType().getId())
                 .productTypeName(entity.getProductType().getName())
+                .measurementUnit(entity.getMeasurementUnit())
                 .weight(entity.getWeight())
                 .build();
     }
@@ -96,6 +97,7 @@ public class RecipeServiceImpl implements RecipeService {
     private RecipeDetails toRecipeDetailsEntity(RecipeDetailsDto dto) {
         RecipeDetails.RecipeDetailsBuilder builder = RecipeDetails.builder();
         builder.weight(dto.getWeight());
+        builder.measurementUnit(dto.getMeasurementUnit());
 
         if (Objects.isNull(dto.getProductTypeId())) {
             builder.productType(ProductType.builder().name(dto.getProductTypeName()).build());
