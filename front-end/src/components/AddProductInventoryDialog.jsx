@@ -1,11 +1,11 @@
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import DialogActions from "@mui/material/DialogActions";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import PropTypes from "prop-types";
-import { Stack, InputLabel } from "@mui/material";
+import Dialog from '@mui/material/Dialog'
+import DialogTitle from '@mui/material/DialogTitle'
+import DialogContent from '@mui/material/DialogContent'
+import DialogActions from '@mui/material/DialogActions'
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
+import PropTypes from 'prop-types'
+import { InputLabel, Stack } from '@mui/material'
 
 const AddProductInventoryDialog = ({
   open,
@@ -16,7 +16,7 @@ const AddProductInventoryDialog = ({
   onClose,
 }) => {
   return (
-    <Dialog open={open} onClose={onClose}>
+    <Dialog open={open} onClose={onClose} maxWidth="lg">
       <form onSubmit={onSubmit}>
         <DialogTitle>Add products to inventory</DialogTitle>
         <DialogContent>
@@ -28,7 +28,7 @@ const AddProductInventoryDialog = ({
               spacing={2}
               py={1}
             >
-              <InputLabel sx={{ minWidth: 80 }}>{p.brand}</InputLabel>
+              <InputLabel sx={{ minWidth: 80 }}>{`${p.brand} (${p.productTypeName})`}</InputLabel>
               <TextField
                 autoFocus
                 margin="dense"
