@@ -19,7 +19,7 @@ public class RecipeDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_type_id")
     private ProductType productType;
     private Double weight;
