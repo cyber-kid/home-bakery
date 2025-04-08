@@ -22,7 +22,7 @@ public class Product {
     private String brand;
     @Column(name = "measurement_unit")
     private MeasurementUnit measurementUnit;
-    private Integer barcode;
+    private String barcode;
     private Double weight;
     @Column(name = "valid_days")
     private Integer validDays;

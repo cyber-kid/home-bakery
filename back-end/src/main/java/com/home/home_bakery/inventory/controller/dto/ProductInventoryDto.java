@@ -21,7 +21,7 @@ public class ProductInventoryDto {
     private UUID productId;
     private String brand;
     private MeasurementUnit measurementUnit;
-    private Integer barcode;
+    private String barcode;
     private Double weight;
     private Integer validDays;
     private String description;

@@ -141,3 +141,11 @@ databaseChangeLog:
             newColumnName: product_type_id
             oldColumnName: product_id
             tableName: order_details
+  - changeSet:
+      id: 3
+      author: amyrgorod
+      changes:
+        - modifyDataType:
+            columnName: barcode
+            newDataType: VARCHAR(15)
+            tableName: products
