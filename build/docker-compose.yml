@@ -1,0 +1,34 @@
+networks:
+  local-network:
+    driver: bridge
+services:
+  home-bakery-backend:
+    image: "amyrgorod/home-bakery-backend:staging"
+    hostname: home-bakery-backend
+    environment:
+      SPRING_PROFILES_ACTIVE: "staging"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - home-bakery-db
+    networks:
+      - local-network
+  home-bakery-frontend:
+    image: "amyrgorod/home-bakery-frontend:staging"
+    ports:
+      - "80:80"
+    depends_on:
+      - home-bakery-backend
+    networks:
+      - local-network
+  home-bakery-db:
+    hostname: home-bakery-db
+    image: "postgres"
+    environment:
+      POSTGRES_PASSWORD: "passwd"
+      POSTGRES_USER: "user"
+      POSTGRES_DB: "home-bakery"
+    ports:
+       - "5433:5432"
+    networks:
+      - local-network

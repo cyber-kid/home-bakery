@@ -1,7 +1,7 @@
-const BASE_URL = "http://localhost:8080/api";
+const baseUrl = import.meta.env.VITE_API_URL
 
 export const getAllRecipes = async () => {
-  const response = await fetch(`${BASE_URL}/recipes`)
+  const response = await fetch(`${baseUrl}/recipes`)
   const data = await response.json()
 
   if (!response.ok) {
@@ -12,7 +12,7 @@ export const getAllRecipes = async () => {
 };
 
 export const getAllProducts = async () => {
-  const response = await fetch(`${BASE_URL}/products`)
+  const response = await fetch(`${baseUrl}/products`)
   const data = await response.json()
 
   if (!response.ok) {
@@ -23,7 +23,7 @@ export const getAllProducts = async () => {
 }
 
 export const getAllProductsInventory = async () => {
-  const response = await fetch(`${BASE_URL}/inventory`)
+  const response = await fetch(`${baseUrl}/inventory`)
   const data = await response.json()
 
   if (!response.ok) {
@@ -34,7 +34,7 @@ export const getAllProductsInventory = async () => {
 }
 
 export const addProductToInventory = async (data) => {
-  const response = await fetch(`${BASE_URL}/inventory`, {
+  const response = await fetch(`${baseUrl}/inventory`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ export const addProductToInventory = async (data) => {
 }
 
 export const saveProduct = async (data) => {
-  const response = await fetch(`${BASE_URL}/products`, {
+  const response = await fetch(`${baseUrl}/products`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ export const saveProduct = async (data) => {
 }
 
 export const deleteProductFromInventoryById = async (id) => {
-  const response = await fetch(`${BASE_URL}/inventory/${id}`, {
+  const response = await fetch(`${baseUrl}/inventory/${id}`, {
     method: 'DELETE',
   })
 
@@ -72,7 +72,7 @@ export const deleteProductFromInventoryById = async (id) => {
 }
 
 export const deleteProductById = async (id) => {
-  const response = await fetch(`${BASE_URL}/products/${id}`, {
+  const response = await fetch(`${baseUrl}/products/${id}`, {
     method: 'DELETE',
   })
 
@@ -82,7 +82,7 @@ export const deleteProductById = async (id) => {
 }
 
 export const getAllProductTypes = async () => {
-  const response = await fetch(`${BASE_URL}/products/types`)
+  const response = await fetch(`${baseUrl}/products/types`)
   const data = await response.json()
 
   if (!response.ok) {
@@ -93,7 +93,7 @@ export const getAllProductTypes = async () => {
 }
 
 export const saveRecipe = async (data) => {
-  const response = await fetch(`${BASE_URL}/recipes`, {
+  const response = await fetch(`${baseUrl}/recipes`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ export const saveRecipe = async (data) => {
 }
 
 export const deleteRecipeById = async (id) => {
-  const response = await fetch(`${BASE_URL}/recipes/${id}`, {
+  const response = await fetch(`${baseUrl}/recipes/${id}`, {
     method: 'DELETE',
   })
 
@@ -117,7 +117,7 @@ export const deleteRecipeById = async (id) => {
 }
 
 export const getAllOrders = async () => {
-  const response = await fetch(`${BASE_URL}/orders`)
+  const response = await fetch(`${baseUrl}/orders`)
   const data = await response.json()
 
   if (!response.ok) {
@@ -128,7 +128,7 @@ export const getAllOrders = async () => {
 }
 
 export const deleteOrderById = async (id) => {
-  const response = await fetch(`${BASE_URL}/orders/${id}`, {
+  const response = await fetch(`${baseUrl}/orders/${id}`, {
     method: 'DELETE',
   })
 
@@ -138,7 +138,7 @@ export const deleteOrderById = async (id) => {
 }
 
 export const getProductsByType = async (productTypeId) => {
-  const response = await fetch(`${BASE_URL}/inventory?productTypeId=${productTypeId}`)
+  const response = await fetch(`${baseUrl}/inventory?productTypeId=${productTypeId}`)
   const data = await response.json()
 
   if (!response.ok) {
@@ -149,7 +149,7 @@ export const getProductsByType = async (productTypeId) => {
 }
 
 export const saveOrder = async (data) => {
-  const response = await fetch(`${BASE_URL}/orders`, {
+  const response = await fetch(`${baseUrl}/orders`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
