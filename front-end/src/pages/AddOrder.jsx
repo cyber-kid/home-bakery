@@ -100,7 +100,8 @@ const AddOrder = () => {
     let { selected, fulfilled, measurementUnit: orderMeasurementUnit, notFulfilledWeight, price: orderPrice } = selectedProducts[productTypeId];
 
     const remainingWeightConverted = convert(measurementUnit, orderMeasurementUnit, new Decimal(remainingWeight));
-    const pricePerUnit = new Decimal(price).div(weight);
+    const weightConverted = convert(measurementUnit, orderMeasurementUnit, new Decimal(weight))
+    const pricePerUnit = new Decimal(price).div(weightConverted)
 
     const selectedIndex = selected.findIndex(item => item.productInventoryId === productInventoryId);
     let newSelected = [];
